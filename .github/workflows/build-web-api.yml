@@ -5,6 +5,10 @@
 # https://help.github.com/en/articles/workflow-syntax-for-github-actions
 # --------------------------------------------------------------------------------------
 name: build-web-api
+env:
+  APPLICATION_NAME: "Web API"
+  DEPLOY_PACKAGE_NAME    : "web-api-ver-${{ github.sha }}"
+
 on:
   push:
     branches:
@@ -17,6 +21,12 @@ jobs:
     steps:
     - name: Checkout-WebApi
       run: echo "Checkout-WebApi"
+
+    -name: Execute few commands
+      run: |
+        echo "Message 1"
+        echo "Message 2"
+        echo "Application name: ${{ env.APPLICATION_NAME }}"
     
   deploy-api:
     runs-on: ubuntu-latest
@@ -25,3 +35,6 @@ jobs:
     steps:
     - name: Build-WebApi
       run: echo "Build-WebApi"
+
+    - name: Deploy package
+      run: echo "Deploy package name ${{ env.DEPLOY_PACKAGE_NAME }}"
