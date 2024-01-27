@@ -1,0 +1,26 @@
+# --------------------------------------------------------------------------------------
+# Build Web API
+# Deploy Web API
+# For more information on configuration, see:
+# https://help.github.com/en/articles/workflow-syntax-for-github-actions
+# --------------------------------------------------------------------------------------
+name: build-web-api
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build-api:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout-WebApi
+      run: echo "Checkout-WebApi"
+    
+  deploy-api:
+    runs-on: ubuntu-latest
+
+    needs: build-api
+    steps:
+    - name: Build-WebApi
+      run: echo "Build-WebApi"
