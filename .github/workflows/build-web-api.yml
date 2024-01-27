@@ -22,7 +22,7 @@ jobs:
     - name: Checkout-WebApi
       run: echo "Checkout-WebApi"
 
-    -name: Execute few commands
+    - name: Execute few commands
       run: |
         echo "Message 1"
         echo "Message 2"
